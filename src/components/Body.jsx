@@ -27,7 +27,7 @@ export const Body = () => {
 
   const filterdCountry = data.filter((country) => {
     if (
-      country.name.common.toLowerCase().includes(input.toLowerCase()) &&
+      country.name.common.toLowerCase().includes(input.toLowerCase().trim()) &&
       country.region.includes(region)
     ) {
       return true;
@@ -68,7 +68,9 @@ export const Body = () => {
               <PulseLoader color="black" />
             </div>
           ) : filterdCountry.length == 0 ? (
-            <div className="notFound" id = "noCountry">Country not Found</div>
+            <div className="notFound" id="noCountry">
+              Country not Found
+            </div>
           ) : (
             filterdCountry.map((country, i) => (
               <Card
