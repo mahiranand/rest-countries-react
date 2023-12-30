@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { Card } from "./Card";
 import { Options } from "./Options";
 import { PulseLoader } from "react-spinners";
+import { Dropdown } from "./Dropdown";
 
 export const Body = () => {
   const [data, setData] = useState([]);
   const [region, setRegion] = useState("");
   const [input, setInput] = useState("");
+  const [sort, setSort] = useState("");
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -25,6 +27,17 @@ export const Body = () => {
     }, {})
   );
 
+  const subRegionsObj = data.reduce((acc, cv) => {
+    if(!acc[cv.region]){
+      acc[cv.region] = {};
+    }
+    if(cv.subregion != undefined && !acc[cv.region][cv.subregion]){
+      acc[cv.region][cv.subregion] = 1;
+    }
+    return acc;
+  }, {});
+  {console.log(subRegionsObj)}
+
   const filterdCountry = data.filter((country) => {
     if (
       country.name.common.toLowerCase().includes(input.toLowerCase().trim()) &&
@@ -34,6 +47,16 @@ export const Body = () => {
     }
     return false;
   });
+
+  if (sort == "pa") {
+    filterdCountry.sort((a, b) => a.population - b.population);
+  } else if (sort == "pd") {
+    filterdCountry.sort((a, b) => b.population - a.population);
+  } else if (sort == "aa") {
+    filterdCountry.sort((a, b) => a.area - b.area);
+  } else if (sort == "ad") {
+    filterdCountry.sort((a, b) => b.area - a.area);
+  }
 
   return (
     <>
@@ -48,6 +71,22 @@ export const Body = () => {
             onKeyUp={(e) => setInput(e.target.value)}
           />
         </div>
+        <Dropdown
+          set={setSort}
+          data={{
+            name: "sort",
+            className: "region",
+            optionsText: [
+              "Sort",
+              "Population (Ascending)",
+              "Population (Descending)",
+              "Area (Ascending)",
+              "Area (Descending)",
+            ],
+            optionsValue: ["", "pa", "pd", "aa", "ad"],
+          }}
+        />
+
         <div className="dropdown">
           <select
             name="region"

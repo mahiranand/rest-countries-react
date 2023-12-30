@@ -133,9 +133,10 @@ nav {
 }
 
 .about-data h1 {
+  min-height: 3.2rem;
+  max-width: 260px;
   font-size: 1.2rem;
   color: var(--veryDarkBlueText);
-  margin-bottom: 1.1rem;
   font-weight: 800;
 }
 
@@ -161,7 +162,7 @@ nav {
   color: white !important;
 }
 
-.fa-solid {
+.fa-solid{
   color: white;
 }
 
@@ -202,13 +203,3 @@ nav {
     font-size: 1.2rem;
   }
 }
-
-.notFound{
-  height: 50vh;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
-}
-
