@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-// eslint-disable-next-line react/prop-types
 export const Dropdown = ({ set, data}) => {
   Dropdown.propTypes = {
     set : PropTypes.func.isRequired,

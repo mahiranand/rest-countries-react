@@ -9,6 +9,7 @@ export const Body = () => {
   const [region, setRegion] = useState("");
   const [input, setInput] = useState("");
   const [sort, setSort] = useState("");
+  const [subRegion, setSubregion] = useState("");
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -18,6 +19,10 @@ export const Body = () => {
       });
   }, []);
 
+  const handler = (e) => {
+    setSubregion("");
+    return setRegion(e.target.value);
+  };
   const regionArr = Object.keys(
     data.reduce((acc, cv) => {
       if (!acc[cv.region]) {
@@ -27,21 +32,30 @@ export const Body = () => {
     }, {})
   );
 
-  const subRegionsObj = data.reduce((acc, cv) => {
-    if(!acc[cv.region]){
-      acc[cv.region] = {};
-    }
-    if(cv.subregion != undefined && !acc[cv.region][cv.subregion]){
-      acc[cv.region][cv.subregion] = 1;
-    }
-    return acc;
-  }, {});
-  {console.log(subRegionsObj)}
+  const subRegionsObj = data.reduce(
+    (acc, cv) => {
+      if (!acc[cv.region]) {
+        acc[cv.region] = {};
+      }
+      if (cv.subregion != undefined && !acc[cv.region][cv.subregion]) {
+        acc[cv.region][cv.subregion] = 1;
+      }
+      return acc;
+    },
+    { "": [] }
+  );
+
+  for (let key in subRegionsObj) {
+    subRegionsObj[key] = Object.keys(subRegionsObj[key]);
+  }
 
   const filterdCountry = data.filter((country) => {
     if (
       country.name.common.toLowerCase().includes(input.toLowerCase().trim()) &&
-      country.region.includes(region)
+      country.region.includes(region) &&
+      (subRegion == "" ||
+        (country.subregion != undefined &&
+          country.subregion.includes(subRegion)))
     ) {
       return true;
     }
@@ -88,17 +102,22 @@ export const Body = () => {
         />
 
         <div className="dropdown">
-          <select
-            name="region"
-            className="region"
-            onChange={(e) => setRegion(e.target.value)}
-          >
+          <select name="region" className="region" onChange={handler}>
             <option value="">Filter by Region</option>
             {regionArr.map((item, index) => (
               <Options region={item} key={index} />
             ))}
           </select>
         </div>
+        <Dropdown
+          set={setSubregion}
+          data={{
+            name: "subregion",
+            className: "region",
+            optionsText: ["Filter By Subregion", ...subRegionsObj[region]],
+            optionsValue: ["", ...subRegionsObj[region]],
+          }}
+        />
       </div>
       <div className="cards-container">
         <ul className="cards">

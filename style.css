@@ -49,6 +49,7 @@ nav {
 
 .container-search {
   display: flex;
+  flex-wrap: wrap;
   margin: 2rem 1rem;
   flex-direction: column;
 }
@@ -162,7 +163,7 @@ nav {
   color: white !important;
 }
 
-.fa-solid{
+.fa-solid {
   color: white;
 }
 
@@ -192,6 +193,7 @@ nav {
   .dropdown {
     width: 15%;
     min-width: 15rem;
+    margin-bottom: 2.5rem;
   }
   nav {
     padding: 2.5rem;
