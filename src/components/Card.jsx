@@ -8,15 +8,15 @@ export const Card = ({ name, population, capital, image, region }) => {
         <div className="info-data">
           <p id="population">
             <b>Population: </b>
-            {population.toLocaleString()}
+            <span>{population.toLocaleString()}</span>
           </p>
           <p id="region">
             <b>Region: </b>
-            {region}
+            <span>{region}</span>
           </p>
           <p id="capital">
             <b>Capital: </b>
-            {capital}
+            <span>{capital}</span>
           </p>
         </div>
       </div>

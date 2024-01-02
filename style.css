@@ -155,13 +155,35 @@ nav {
   margin: 0.4rem 0;
 }
 
-.darkBackground {
+#dark {
+  background-color: var(--veryDarkBlue);
+}
+#dark nav,
+#dark .searchbar,
+#dark .dropdown,
+#dark input,
+#dark .dropdown select,
+#dark .card {
+  background-color: var(--darkBlue);
+}
+#dark nav h1,
+#dark .changemode h2,
+#dark input[placeholder],
+#dark .region,
+#dark.info-data p,
+#dark .info-data p b,
+#dark .about-data h1,
+#dark .info-data p span {
+  color: white !important;
+}
+
+/* .darkBackground {
   background-color: var(--darkBlue);
 }
 
 .fontColor {
   color: white !important;
-}
+} */
 
 .fa-solid {
   color: white;
