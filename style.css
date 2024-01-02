@@ -167,6 +167,11 @@ nav {
   color: white;
 }
 
+.notFound {
+  font-size: 3rem;
+  padding: 6rem 0;
+}
+
 @media (min-width: 600px) {
   .cards {
     flex-direction: row;
