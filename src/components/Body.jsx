@@ -132,6 +132,7 @@ export const Body = () => {
           ) : (
             filterdCountry.map((country, i) => (
               <Card
+                id={country.cca3}
                 name={country.name.common}
                 population={country.population}
                 capital={country.capital}

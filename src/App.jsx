@@ -1,6 +1,8 @@
 import { createContext, useState } from "react";
 import { Body } from "./components/Body";
 import { Nav } from "./components/Nav";
+import { Routes, Route } from "react-router-dom";
+import Detail from "./components/Detail";
 
 export const ThemeContext = createContext(null);
 
@@ -24,7 +26,11 @@ const App = () => {
     <ThemeContext.Provider value={toggleTheme}>
       <div id={theme}>
         <Nav />
-        <Body />
+        <Routes>
+          <Route path="/" element={<Body />}></Route>
+          <Route path="/country/:id" element={<Detail />}></Route>
+          <Route path="*" element={<h1>Invalid Request</h1>} />
+        </Routes>
       </div>
     </ThemeContext.Provider>
   );

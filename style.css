@@ -128,7 +128,9 @@ nav {
   aspect-ratio: 16/9;
   width: 100%;
 }
-
+a {
+  text-decoration: none;
+}
 .about-data {
   margin: 1.2rem;
 }
