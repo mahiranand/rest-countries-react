@@ -21,9 +21,9 @@ const App = () => {
   };
 
   return (
-    <ThemeContext.Provider>
+    <ThemeContext.Provider value={toggleTheme}>
       <div id={theme}>
-        <Nav toggleTheme={toggleTheme} />
+        <Nav />
         <Body />
       </div>
     </ThemeContext.Provider>

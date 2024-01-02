@@ -1,8 +1,9 @@
-import PropTypes from "prop-types";
-export const Nav = ({ toggleTheme }) => {
-  Nav.propTypes = {
-    toggleTheme: PropTypes.func.isRequired,
-  };
+import { useContext } from "react";
+import { ThemeContext } from "../App";
+
+export const Nav = () => {
+  const toggleTheme = useContext(ThemeContext);
+
   return (
     <nav>
       <h1>Where in the world?</h1>
