@@ -184,7 +184,8 @@ a {
 #dark #border-heading b,
 #dark .more-details h1,
 #dark .backBtn button,
-#dark #noCountry {
+#dark #noCountry,
+#dark PulseLoader {
   color: white !important;
 }
 .detail-container {

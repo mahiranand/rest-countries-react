@@ -23,13 +23,16 @@ const App = () => {
   };
 
   return (
-    <ThemeContext.Provider value={toggleTheme}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div id={theme}>
         <Nav />
         <Routes>
           <Route path="/" element={<Body />}></Route>
           <Route path="/country/:id" element={<Detail />}></Route>
-          <Route path="*" element={<h1 className="notFound">Invalid Request</h1>} />
+          <Route
+            path="*"
+            element={<h1 className="notFound">Invalid Request</h1>}
+          />
         </Routes>
       </div>
     </ThemeContext.Provider>

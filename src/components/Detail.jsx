@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { PulseLoader } from "react-spinners";
+import { ThemeContext } from "../App";
 
 const Detail = () => {
   const param = useParams();
   const id = param.id;
   const [data, setData] = useState({});
   const [datafetch, setDatafetch] = useState("");
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     fetch(`https://restcountries.com/v3.1/alpha/${id}`)
@@ -130,7 +132,7 @@ const Detail = () => {
     </div>
   ) : (
     <div className="notFound">
-      <PulseLoader color="black" />
+      <PulseLoader color={theme == "dark" ? "white" : "black"} />
     </div>
   );
 };

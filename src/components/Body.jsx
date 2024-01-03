@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Card } from "./Card";
 import { Options } from "./Options";
 import { PulseLoader } from "react-spinners";
 import { Dropdown } from "./Dropdown";
+import { ThemeContext } from "../App";
 
 export const Body = () => {
   const [data, setData] = useState([]);
@@ -10,13 +11,13 @@ export const Body = () => {
   const [input, setInput] = useState("");
   const [sort, setSort] = useState("");
   const [subRegion, setSubregion] = useState("");
+  const { theme } = useContext(ThemeContext);
   // const [datafetch, setDatafetch] = useState("");
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
       .then((dataOfCountry) => {
-        // if( )
         setData(dataOfCountry);
       });
   }, []);
@@ -125,7 +126,7 @@ export const Body = () => {
         <ul className="cards">
           {data.length == 0 ? (
             <div className="notFound">
-              <PulseLoader color="black" />
+              <PulseLoader color={theme == "dark" ? "white" : "black"} />
             </div>
           ) : filterdCountry.length == 0 ? (
             <div className="notFound" id="noCountry">

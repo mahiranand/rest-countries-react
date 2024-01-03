@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../App";
 
 export const Nav = () => {
-  const toggleTheme = useContext(ThemeContext);
+  const { toggleTheme } = useContext(ThemeContext);
 
   return (
     <nav>
