@@ -64,12 +64,16 @@ const Detail = () => {
             <div>
               <p>
                 <b>Native Name: </b>
-                <span>
-                  {
-                    data.name.nativeName[Object.keys(data.name.nativeName)[0]]
-                      .common
-                  }
-                </span>
+                {data.name.nativeName ? (
+                  <span>
+                    {
+                      data.name.nativeName[Object.keys(data.name.nativeName)[0]]
+                        .common
+                    }
+                  </span>
+                ) : (
+                  <div></div>
+                )}
               </p>
               <p>
                 <b>Population: </b>
@@ -85,7 +89,7 @@ const Detail = () => {
               </p>
               <p id="capital">
                 <b>Capital: </b>
-                <span>{data.capital}</span>
+                {data.capital ? <span>{data.capital}</span> : <div></div>}
               </p>
             </div>
             <div>
