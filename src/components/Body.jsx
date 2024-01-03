@@ -12,13 +12,18 @@ export const Body = () => {
   const [sort, setSort] = useState("");
   const [subRegion, setSubregion] = useState("");
   const { theme } = useContext(ThemeContext);
-  // const [datafetch, setDatafetch] = useState("");
+  const [datafetch, setDatafetch] = useState("");
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
-      .then((dataOfCountry) => {
-        setData(dataOfCountry);
+      .then((res) => {
+        if (res.message) {
+          setDatafetch("error");
+          return;
+        }
+        setDatafetch("loaded");
+        setData(res);
       });
   }, []);
 
@@ -124,26 +129,32 @@ export const Body = () => {
       </div>
       <div className="cards-container">
         <ul className="cards">
-          {data.length == 0 ? (
+          {datafetch == "" ? (
             <div className="notFound">
               <PulseLoader color={theme == "dark" ? "white" : "black"} />
             </div>
-          ) : filterdCountry.length == 0 ? (
-            <div className="notFound" id="noCountry">
-              Country not Found
-            </div>
+          ) : datafetch == "loaded" ? (
+            filterdCountry.length == 0 ? (
+              <div className="notFound" id="noCountry">
+                Country not Found
+              </div>
+            ) : (
+              filterdCountry.map((country, i) => (
+                <Card
+                  id={country.cca3}
+                  name={country.name.common}
+                  population={country.population}
+                  capital={country.capital}
+                  image={country.flags.png}
+                  region={country.region}
+                  key={i}
+                />
+              ))
+            )
           ) : (
-            filterdCountry.map((country, i) => (
-              <Card
-                id={country.cca3}
-                name={country.name.common}
-                population={country.population}
-                capital={country.capital}
-                image={country.flags.png}
-                region={country.region}
-                key={i}
-              />
-            ))
+            <div className="notFound" id="noCountry">
+              Error In Link
+            </div>
           )}
         </ul>
       </div>
