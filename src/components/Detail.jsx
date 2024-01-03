@@ -127,8 +127,8 @@ const Detail = () => {
       </div>
     </div>
   ) : datafetch == "error" ? (
-    <div className="notFound">
-      <h1>Error Occured</h1>
+    <div className="notFound" id="noCountry">
+      ERROR 404 (NOT FOUND!)
     </div>
   ) : (
     <div className="notFound">
