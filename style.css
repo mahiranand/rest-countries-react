@@ -183,7 +183,8 @@ a {
 #dark .borders-name span,
 #dark #border-heading b,
 #dark .more-details h1,
-#dark .backBtn button {
+#dark .backBtn button,
+#dark #noCountry {
   color: white !important;
 }
 .detail-container {
@@ -271,7 +272,7 @@ a {
 }
 
 @media (min-width: 600px) {
-  .backBtn button{
+  .backBtn button {
     font-size: 1.2rem;
   }
   .detail-container {
