@@ -197,6 +197,7 @@ a {
 }
 
 .backBtn button {
+  text-align: center;
   background-color: var(--white);
   border: none;
   padding: 0.5rem 2rem;
