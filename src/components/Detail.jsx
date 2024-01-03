@@ -16,6 +16,7 @@ const Detail = () => {
         return setData(res[0]);
       })
       .catch(() => setDatafetch("error"));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   let currencyArr = [];

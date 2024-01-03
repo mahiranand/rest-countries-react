@@ -29,7 +29,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Body />}></Route>
           <Route path="/country/:id" element={<Detail />}></Route>
-          <Route path="*" element={<h1>Invalid Request</h1>} />
+          <Route path="*" element={<h1 className="notFound">Invalid Request</h1>} />
         </Routes>
       </div>
     </ThemeContext.Provider>

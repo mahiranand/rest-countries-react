@@ -119,7 +119,7 @@ nav {
   border-radius: 0.5rem;
   box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
     rgba(17, 17, 26, 0.1) 0px 0px 8px;
-  margin: 0 10% 2.5rem 10%;
+  margin-bottom: 2.5rem;
   background-color: var(--white);
 }
 
