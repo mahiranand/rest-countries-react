@@ -165,7 +165,9 @@ a {
 #dark .dropdown,
 #dark input,
 #dark .dropdown select,
-#dark .card {
+#dark .card,
+#dark .borders-name span,
+#dark .backBtn button {
   background-color: var(--darkBlue);
 }
 #dark nav h1,
@@ -175,20 +177,89 @@ a {
 #dark.info-data p,
 #dark .info-data p b,
 #dark .about-data h1,
-#dark .info-data p span {
+#dark .info-data p span,
+#dark .more-about p b,
+#dark .more-about p span,
+#dark .borders-name span,
+#dark #border-heading b,
+#dark .more-details h1,
+#dark .backBtn button {
   color: white !important;
 }
-
-/* .darkBackground {
-  background-color: var(--darkBlue);
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
 }
 
-.fontColor {
-  color: white !important;
-} */
+.backBtn {
+  margin: 0.5rem 0;
+}
 
+.backBtn button {
+  background-color: var(--white);
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 0.3rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.img-details {
+  margin-top: 3rem;
+}
+
+.img-large {
+  margin-bottom: 2rem;
+}
+.img-large img {
+  width: 100%;
+  aspect-ratio: 8/5;
+}
+.more-details h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.more-about p {
+  line-height: 2rem;
+}
+
+.more-about p b {
+  font-weight: 600;
+}
+
+#capital {
+  margin-bottom: 2rem;
+}
+#language {
+  margin-bottom: 2rem;
+}
+
+.Borders b {
+  padding-bottom: 1rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.borders-name {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.borders-name span {
+  padding: 0.25rem 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-right: 1rem;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
 .fa-solid {
   color: white;
+}
+
+#border-heading {
+  margin-bottom: 1rem;
 }
 
 .notFound {
@@ -197,6 +268,66 @@ a {
 }
 
 @media (min-width: 600px) {
+  .backBtn button{
+    font-size: 1.2rem;
+  }
+  .detail-container {
+    padding: 3rem;
+    padding-bottom: 0;
+  }
+  .img-details {
+    display: flex;
+    flex-direction: row;
+    margin-top: 4rem;
+    gap: 5%;
+  }
+  .img-large,
+  .more-details {
+    width: 100%;
+  }
+  #border-heading b {
+    font-size: 1.5rem;
+  }
+  .borders-name span {
+    font-size: 1.1rem;
+  }
+  .more-about p b {
+    font-size: 1.1rem;
+  }
+  .more-about p span {
+    font-size: 1.1rem;
+  }
+
+  .Borders > div {
+    display: flex;
+    align-items: center;
+    padding-bottom: 2rem;
+  }
+
+  .borders-name {
+    margin-left: 2rem;
+  }
+
+  .more-details {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .more-details h1 {
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .more-about {
+    display: flex;
+  }
+  .more-about > div {
+    margin-right: 1rem;
+  }
+  .more-about div {
+    flex-grow: 1;
+  }
+
   .cards {
     flex-direction: row;
     flex-wrap: wrap;
