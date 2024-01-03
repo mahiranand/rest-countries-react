@@ -10,7 +10,7 @@ export const Body = () => {
   const [input, setInput] = useState("");
   const [sort, setSort] = useState("");
   const [subRegion, setSubregion] = useState("");
-  const [datafetch, setDatafetch] = useState("");
+  // const [datafetch, setDatafetch] = useState("");
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
