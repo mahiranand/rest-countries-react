@@ -13,10 +13,14 @@ const Detail = () => {
       .then((res) => res.json())
       .then((res) => {
         setDatafetch("loaded");
+        if (res.status) {
+          setDatafetch("error");
+          return;
+        }
         return setData(res[0]);
       })
       .catch(() => setDatafetch("error"));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   let currencyArr = [];
@@ -117,7 +121,9 @@ const Detail = () => {
       </div>
     </div>
   ) : datafetch == "error" ? (
-    <h1>Error Occured</h1>
+    <div className="notFound">
+      <h1>Error Occured</h1>
+    </div>
   ) : (
     <div className="notFound">
       <PulseLoader color="black" />
